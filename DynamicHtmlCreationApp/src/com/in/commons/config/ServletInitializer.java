@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.in.commons.util.HtmlTest;
+import com.in.commons.util.fileGeneration;
 
 /**
  * Servlet implementation class ServletInitializer
@@ -19,7 +19,7 @@ public class ServletInitializer extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String path="C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps\\JustDoIt\\";
 		System.out.println(path);
-		HtmlTest.templateFileManipulate(path);
+		fileGeneration.templateFileManipulate(path);
 	}
 
 }
