@@ -17,7 +17,6 @@ public class ServletInitializer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		//String path= "F:\\SpringWorkspace\\JustDoIt\\";
 		String path="C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps\\JustDoIt\\";
 		System.out.println(path);
 		HtmlTest.templateFileManipulate(path);
