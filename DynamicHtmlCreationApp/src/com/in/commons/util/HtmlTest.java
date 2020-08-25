@@ -22,7 +22,7 @@ public class HtmlTest {
 					System.out.println(newHtmlFile.delete());
 				}
 				fileCreatedStatus = newHtmlFile.createNewFile();
-				if(fileCreatedStatus) {	
+				if(fileCreatedStatus) {
 					String htmlString = FileUtils.readFileToString(htmlTemplateFile);
 					String title = "SarkariResult.com : Sarkari Results, Latest Online Form | Result 2020";
 					String body = "This is Body";
