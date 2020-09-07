@@ -1,17 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="utf-8">
 <title>Insert title here</title>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-      <script src="jsFiles/mainScript.js"></script>
-      <link rel="stylesheet" href="cssFiles/styles.css">
+		<script src="jsFiles/jquery.min.js"></script>
+     	<link rel="stylesheet" href="cssFiles/styles.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  		<script src="jsFiles/mainScript.js"></script>
 </head>
 <body>
-<form>
-<input type="hidden" name="test" value="test">
-<input type="">
-<input type="button" onclick="callToServer();" value="Press!!"/>
+<form method="post" action="ServletInitializer">
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary active">
+    <input type="radio" name="generationType" id="option1" autocomplete="off" value="HOMEPAGE_GENERATION" checked> HOMEPAGE_GENERATION
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="generationType" id="option2" autocomplete="off" value="COMPLETE_GENERATION"> COMPLETE_GENERATION
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="generationType" id="option3" autocomplete="off" value="FLAG_FILES_GENERATION"> FLAG_FILES_GENERATION
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="generationType" id="option4" autocomplete="off" value="NEW_FILE_GENERATION"> NEW_FILE_GENERATION
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="generationType" id="option5" autocomplete="off" value="EDIT_FILE"> EDIT_FILE
+  </label>
+</div>
+<div class="row"></div>
+<button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </body>
 </html>

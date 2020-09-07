@@ -1,3 +1,3 @@
 function onLoadOfApplication(){
-	alert("Application Loaded");
+	//alert("Application Loaded");
 }

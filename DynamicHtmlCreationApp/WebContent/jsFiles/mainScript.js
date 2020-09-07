@@ -7,6 +7,7 @@ function callToServer(){
 				async: true,
 				data:
 				{
+					generationType=$("input[name='generationType']:checked").val(),
 					argnum : "0"
 				},
 				dataType: "json",
@@ -16,7 +17,7 @@ function callToServer(){
 				},
 				error : function(result)
 				{
-					
+					alert("ERROR");
 				}
 			});
 }

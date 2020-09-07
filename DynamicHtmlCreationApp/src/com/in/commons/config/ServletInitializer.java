@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.in.commons.controller.UserController;
 import com.in.commons.util.fileGeneration;
 
 /**
@@ -17,9 +18,9 @@ public class ServletInitializer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String path="C:\\Program Files\\Apache Software Foundation\\Tomcat 9.0\\webapps\\JustDoIt\\";
-		System.out.println(path);
-		fileGeneration.templateFileManipulate(path);
+		UserController.stepwiseGenerationController(request);
+//		fileGeneration.multiPageTemplateFileManipulate(path);
+//		fileGeneration.indexTemplateFileManipulate(path);
 	}
 
 }

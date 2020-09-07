@@ -2,13 +2,14 @@ package com.in.commons.util;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Map;
 
 import org.apache.commons.io.FileUtils;
 
 public class fileGeneration {
 	
-	public static void indexFileManipulate(String path) {
-		boolean fileCreatedStatus;
+	public static boolean indexTemplateFileManipulate(String path,Map userTableModelMap) {
+		boolean fileCreatedStatus=false;
 		try {
 			
 			String templateFilePath=path+"\\templateFiles";
@@ -38,9 +39,10 @@ public class fileGeneration {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return fileCreatedStatus;
 	}
 	
-	public static void templateFileManipulate(String path) {
+	public static void multiPageTemplateFileManipulate(String path) {
 		// TODO Auto-generated method stub
 		boolean fileCreatedStatus;
 		try {
