@@ -27,6 +27,7 @@ public class UserController {
 				}
 				else if(generationType.equals(UserConstants.HOMEPAGE_GENERATION)) {
 					Map userTabMap=fetchDataFromTable.DetailsTableFetch(conn);
+					
 					fileGeneration.indexTemplateFileManipulate(UserConstants.FILE_PATH,userTabMap);
 //					for(int i=1;i<=userTabMap.size();i++) {
 //						System.out.println(userTabMap.get(i).toString());
