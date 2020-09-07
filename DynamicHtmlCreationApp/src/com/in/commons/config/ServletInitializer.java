@@ -19,7 +19,7 @@ public class ServletInitializer extends HttpServlet {
        
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UserController.stepwiseGenerationController(request);
-//		fileGeneration.multiPageTemplateFileManipulate(path);
+//		fileGeneration.multiPageTemplateFileManipulate(path);//
 //		fileGeneration.indexTemplateFileManipulate(path);
 	}
 
