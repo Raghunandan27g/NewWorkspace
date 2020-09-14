@@ -5,9 +5,14 @@ import java.sql.SQLException;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
+
+import org.json.JSONObject;
+
+
 import com.in.commons.util.UserConstants;
 import com.in.commons.util.fetchDataFromTable;
 import com.in.commons.util.fileGeneration;
+
 
 public class UserController {
 	
@@ -27,6 +32,7 @@ public class UserController {
 				}
 				else if(generationType.equals(UserConstants.HOMEPAGE_GENERATION)) {
 					Map userTabMap=fetchDataFromTable.DetailsTableFetch(conn);
+//					JSONObject json=new JSONObject(userTabMap);
 					
 					fileGeneration.indexTemplateFileManipulate(UserConstants.FILE_PATH,userTabMap);
 //					for(int i=1;i<=userTabMap.size();i++) {
@@ -52,6 +58,9 @@ public class UserController {
 				e.printStackTrace();
 			}
 		}
-		return statusFlag;
+		return true;
 	}
+	
+	
 }
+

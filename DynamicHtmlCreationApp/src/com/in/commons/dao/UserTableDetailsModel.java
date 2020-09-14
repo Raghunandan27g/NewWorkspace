@@ -6,6 +6,8 @@ public class UserTableDetailsModel {
 	private String Name;
 	private String Keyword;
 	private String URL;
+	private String section;
+	private String content;
 	
 	public int getSno() {
 		return Sno;
@@ -31,12 +33,16 @@ public class UserTableDetailsModel {
 	public void setURL(String uRL) {
 		URL = uRL;
 	}
-	@Override
-	public String toString() {
-		return "UserTableDetailsModel [Sno=" + Sno + ", Name=" + Name + ", Keyword=" + Keyword + ", URL=" + URL + "]";
+	public String getSection() {
+		return section;
 	}
-	
-	
-	
-	
+	public void setSection(String section) {
+		this.section = section;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
 }
