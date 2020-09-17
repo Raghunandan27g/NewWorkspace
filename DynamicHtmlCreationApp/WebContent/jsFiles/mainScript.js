@@ -13,7 +13,7 @@ function callToServer(){
 				dataType: "json",
 				success: function(result)
 				{
-					console.log(success);
+					console.log("::"+success);
 				},
 				error : function(result)
 				{
