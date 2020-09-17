@@ -5,9 +5,12 @@ import com.in.commons.dao.UserTableDetailsModel;
 public class SimpleGenerationUtilities {
 	
 	public static String ulBasicDesign(UserTableDetailsModel userTabObj) {
-		return "<ul>" + 
+		return "" + 
 				"			<li><a href=\""+userTabObj.getSection()+"/"+userTabObj.getURL()+"\" target=\"_blank\">"+ userTabObj.getName()+" </a></li>\r\n" + 
-				"	</ul>\n";
+				"";
 	}
-	
+	public static String oneFileliDesign() {
+		return "<li style=\"display: none;\">$admitCard_One$</li>"
+				+ "<li>New Row</li>";
+	}
 }

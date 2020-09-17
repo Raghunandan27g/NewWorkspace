@@ -67,12 +67,12 @@ public class fileGeneration {
 					String title = "SarkariResult.com : Sarkari Results, Latest Online Form | Result 2020";
 					htmlString = htmlString.replace("$description", "Sarkari Results, सरकारी रिजल्ट्स - SarkariResult.com provides you all the latest official Sarkari Result, Online Forms, Sarkari Naukri Jobs in various sectors such as Railway, Bank, SSC, Army, Navy, Police, UPPSC, UPSSSC & other sarkari job alerts at one place.");
 					htmlString = htmlString.replace("$title", title);
-					htmlString = htmlString.replace("$admitCard", strAdmitCard);
-					htmlString = htmlString.replace("$latestJobs", strLatestJobs);
-					htmlString = htmlString.replace("$latestResult", strLatestResults);
-					htmlString = htmlString.replace("$otherImpLinks", strOtherImpLinks);
+					htmlString = htmlString.replace("$admitCard$", strAdmitCard);
+					htmlString = htmlString.replace("$latestJobs$", strLatestJobs);
+					htmlString = htmlString.replace("$latestResult$", strLatestResults);
+					htmlString = htmlString.replace("$otherImpLinks$", strOtherImpLinks);
 					
-					FileUtils.writeStringToFile(newHtmlFile, htmlString);
+					FileUtils.writeStringToFile(newHtmlFile, htmlString,"UTF-8");
 				}
 				else
 					System.out.println("File Created Status =>"+fileCreatedStatus);
@@ -106,8 +106,8 @@ public class fileGeneration {
 					String title = "SarkariResult.com : Sarkari Results, Latest Online Form | Result 2020";
 					htmlString = htmlString.replace("$description", "Sarkari Results, सरकारी रिजल्ट्स - SarkariResult.com provides you all the latest official Sarkari Result, Online Forms, Sarkari Naukri Jobs in various sectors such as Railway, Bank, SSC, Army, Navy, Police, UPPSC, UPSSSC & other sarkari job alerts at one place.");
 					htmlString = htmlString.replace("$title", title);
-					htmlString = htmlString.replace("$content", userTabObj.getContent());
-					FileUtils.writeStringToFile(newHtmlFile, htmlString);
+					htmlString = htmlString.replace("$content$", userTabObj.getContent());
+					FileUtils.writeStringToFile(newHtmlFile, htmlString,"UTF-8");
 				}
 				else
 					System.out.println("File Created Status =>"+fileCreatedStatus);
@@ -123,4 +123,40 @@ public class fileGeneration {
 		return fileCreatedStatus;
 	}
 	
+	public static boolean singlePageTemplateFileManipulate(String path) {
+		// TODO Auto-generated method stub
+		boolean fileCreatedStatus=false;
+		try {
+			
+			String templateFilePath=path;
+			File htmlTemplateFile = new File(templateFilePath+"\\Home.html");
+			String htmlString = FileUtils.readFileToString(htmlTemplateFile);
+			String newFilePath=path;
+
+			File newHtmlFile = new File(newFilePath+"\\Home.html");
+				if(newHtmlFile.exists()) {
+					FileUtils.writeStringToFile(newHtmlFile, "ServerDown","UTF-8");
+					fileCreatedStatus = true;
+				}
+				else {
+					fileCreatedStatus = newHtmlFile.createNewFile();
+				}
+				if(fileCreatedStatus) {
+					String title = "SarkariResult.com : Sarkari Results, Latest Online Form | Result 2020";
+					htmlString = htmlString.replace("<li style=\"display: none;\">$admitCard_One$</li>", SimpleGenerationUtilities.oneFileliDesign());
+					FileUtils.writeStringToFile(newHtmlFile, htmlString,"UTF-8");
+				}
+				else
+					System.out.println("File Created Status =>"+fileCreatedStatus);
+				
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		finally {
+				if(!fileCreatedStatus) {
+					throw new ArithmeticException("TryAgain"); 
+				}
+		}
+		return fileCreatedStatus;
+	}
 }

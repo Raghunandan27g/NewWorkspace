@@ -41,6 +41,7 @@ public class UserController {
 				}
 				else if(generationType.equals(UserConstants.NEW_FILE_GENERATION)) {
 					//Insert
+					fileGeneration.singlePageTemplateFileManipulate(UserConstants.FILE_PATH);
 				}
 				else if(generationType.equals(UserConstants.EDIT_FILE)) {
 					//Update
