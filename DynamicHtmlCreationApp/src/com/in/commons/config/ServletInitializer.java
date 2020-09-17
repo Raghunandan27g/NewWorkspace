@@ -2,6 +2,7 @@ package com.in.commons.config;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,15 +23,20 @@ public class ServletInitializer extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html");
         response.setCharacterEncoding("UTF-8");
-		PrintWriter out = response.getWriter();
-		boolean status=UserController.stepwiseGenerationController(request);
-		if(status) {
-		      response.setContentType("text/html");
-		      out.println("<h1>" + "File generated successfully" + "</h1>");
-		      out.println("<a href=\"index.html\">" + "Go Back" + "</a>");
+		System.out.println("hey::"+request.getParameter("generationType"));
+		Map<String, String[]> parameters = request.getParameterMap();
+		for(String parameter : parameters.keySet()) {
+			System.out.println(parameter);
+		    if(parameter.toLowerCase().startsWith("txt")) {
+		        String[] values = parameters.get(parameter);
+		        System.out.println(values);
+		        //your code here
+		    }
 		}
-//		fileGeneration.multiPageTemplateFileManipulate(path);//
-//		fileGeneration.indexTemplateFileManipulate(path);
+		//boolean status=UserController.stepwiseGenerationController(request);
+		response.setContentType("text/plain");  
+	    response.setCharacterEncoding("UTF-8"); 
+	    response.getWriter().write("true");
 	}
-
+	
 }

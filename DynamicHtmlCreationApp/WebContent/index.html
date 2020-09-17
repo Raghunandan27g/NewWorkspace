@@ -10,7 +10,8 @@
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   		<script src="jsFiles/mainScript.js"></script>
 </head>
-<body>
+<body onload="onloadOfApplication();">
+<div id="outerDiv">
 <form method="post" action="ServletInitializer">
 	<div class="btn-group btn-group-toggle" data-toggle="buttons">
 	  <label class="btn btn-secondary active">
@@ -29,8 +30,15 @@
 	    <input type="radio" name="generationType" id="option5" autocomplete="off" value="EDIT_FILE"> EDIT_FILE
 	  </label>
 	</div> 
+	<div>
+	<input type="text">
+	</div>
 	<div class="row"></div>
-<button type="submit" class="btn btn-primary">Submit</button>
+<button type="button" class="btn btn-primary" onclick="callToServer();startLoader();">Submit</button>
 </form>
+<div id="loader" class="loaderDivClass" style="display: none;">
+	<img class="loaderImgClass" src="images/flame.svg">
+</div>
+</div>
 </body>
 </html>
