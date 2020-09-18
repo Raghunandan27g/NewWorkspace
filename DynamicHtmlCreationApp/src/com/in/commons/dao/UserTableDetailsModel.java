@@ -1,48 +1,54 @@
 package com.in.commons.dao;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class UserTableDetailsModel {
 	
-	private int Sno;
-	private String Name;
-	private String Keyword;
-	private String URL;
-	private String section;
-	private String content;
+	private String txtGenerationType;
+	private String txtName;
+	private String txtKeyword; 
+	private String txtUrl;
+	private String txtSection; 
+	private String txtContent;
 	
-	public int getSno() {
-		return Sno;
+	
+	public String getTxtGenerationType() {
+		return txtGenerationType;
 	}
-	public void setSno(int sno) {
-		Sno = sno;
+	public void setTxtGenerationType(String txtGenerationType) {
+		this.txtGenerationType = txtGenerationType;
 	}
-	public String getName() {
-		return Name;
+	public String getTxtName() {
+		return txtName;
 	}
-	public void setName(String name) {
-		Name = name;
+	public void setTxtName(String txtName) {
+		this.txtName = txtName;
 	}
-	public String getKeyword() {
-		return Keyword;
+	public String getTxtKeyword() {
+		return txtKeyword;
 	}
-	public void setKeyword(String keyword) {
-		Keyword = keyword;
+	public void setTxtKeyword(String txtKeyword) {
+		this.txtKeyword = txtKeyword;
 	}
-	public String getURL() {
-		return URL;
+	public String getTxtUrl() {
+		return txtUrl;
 	}
-	public void setURL(String uRL) {
-		URL = uRL;
+	public void setTxtUrl(String txtUrl) {
+		this.txtUrl = txtUrl;
 	}
-	public String getSection() {
-		return section;
+	public String getTxtSection() {
+		return txtSection;
 	}
-	public void setSection(String section) {
-		this.section = section;
+	public void setTxtSection(String txtSection) {
+		this.txtSection = txtSection;
 	}
-	public String getContent() {
-		return content;
+	public String getTxtContent() {
+		return txtContent;
 	}
-	public void setContent(String content) {
-		this.content = content;
-	}
+	public void setTxtContent(String txtContent) {
+		this.txtContent = txtContent;
+	} 
+
+	
 }

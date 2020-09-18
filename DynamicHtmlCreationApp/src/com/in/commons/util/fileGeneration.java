@@ -90,9 +90,9 @@ public class fileGeneration {
 			
 			String templateFilePath=path+"\\templateFiles";
 			File htmlTemplateFile = new File(templateFilePath+"\\templateFile.html");
-			String newFilePath=path+"\\"+userTabObj.getSection();
+			String newFilePath=path+"\\"+userTabObj.getTxtSection();
 
-			File newHtmlFile = new File(newFilePath+"\\"+userTabObj.getURL()+".html");
+			File newHtmlFile = new File(newFilePath+"\\"+userTabObj.getTxtUrl()+".html");
 				if(newHtmlFile.exists()) {
 					FileUtils.writeStringToFile(newHtmlFile, "ServerDown","UTF-8");
 					fileCreatedStatus = true;
@@ -106,7 +106,7 @@ public class fileGeneration {
 					String title = "SarkariResult.com : Sarkari Results, Latest Online Form | Result 2020";
 					htmlString = htmlString.replace("$description", "Sarkari Results, सरकारी रिजल्ट्स - SarkariResult.com provides you all the latest official Sarkari Result, Online Forms, Sarkari Naukri Jobs in various sectors such as Railway, Bank, SSC, Army, Navy, Police, UPPSC, UPSSSC & other sarkari job alerts at one place.");
 					htmlString = htmlString.replace("$title", title);
-					htmlString = htmlString.replace("$content$", userTabObj.getContent());
+					htmlString = htmlString.replace("$content$", userTabObj.getTxtContent());
 					FileUtils.writeStringToFile(newHtmlFile, htmlString,"UTF-8");
 				}
 				else

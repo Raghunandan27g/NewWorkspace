@@ -20,6 +20,7 @@ public class UserController {
 		Connection conn=null;
 		boolean statusFlag=false;
 		try {
+			
 			conn=DbResource.getConnection();
 			String generationType=request.getParameter("generationType");
 			System.out.println(generationType);

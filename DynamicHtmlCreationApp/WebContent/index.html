@@ -13,28 +13,44 @@
 <body onload="onloadOfApplication();">
 <div id="outerDiv">
 <form method="post" action="ServletInitializer">
-	<div class="btn-group btn-group-toggle" data-toggle="buttons">
+
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
 	  <label class="btn btn-secondary active">
-	    <input type="radio" name="generationType" id="option1" autocomplete="off" value="HOMEPAGE_GENERATION" checked> HOMEPAGE_GENERATION
+	    <input type="radio" name="txtGenerationType" id="option1" autocomplete="off" value="HOMEPAGE_GENERATION" checked> HOMEPAGE_GENERATION
 	  </label>
 	  <label class="btn btn-secondary">
-	    <input type="radio" name="generationType" id="option2" autocomplete="off" value="COMPLETE_GENERATION"> COMPLETE_GENERATION
+	    <input type="radio" name="txtGenerationType" id="option2" autocomplete="off" value="COMPLETE_GENERATION"> COMPLETE_GENERATION
 	  </label>
 	  <label class="btn btn-secondary">
-	    <input type="radio" name="generationType" id="option3" autocomplete="off" value="FLAG_FILES_GENERATION"> FLAG_FILES_GENERATION
+	    <input type="radio" name="txtGenerationType" id="option3" autocomplete="off" value="FLAG_FILES_GENERATION"> FLAG_FILES_GENERATION
 	  </label>
 	  <label class="btn btn-secondary">
-	    <input type="radio" name="generationType" id="option4" autocomplete="off" value="NEW_FILE_GENERATION"> NEW_FILE_GENERATION
+	    <input type="radio" name="txtGenerationType" id="option4" autocomplete="off" value="NEW_FILE_GENERATION"> NEW_FILE_GENERATION
 	  </label>
 	  <label class="btn btn-secondary">
-	    <input type="radio" name="generationType" id="option5" autocomplete="off" value="EDIT_FILE"> EDIT_FILE
+	    <input type="radio" name="txtGenerationType" id="option5" autocomplete="off" value="EDIT_FILE"> EDIT_FILE
 	  </label>
 	</div> 
 	<div>
-	<input type="text">
+	txtName:<input type="text" name="txtName" id="txtName"><br/><br/>
+	txtKeyword:<input type="text" name="txtKeyword" id="txtKeyword"><br/><br/>
+	txtUrl:<input type="text" name="txtUrl" id="txtUrl"><br/><br/>
+	txtSection:<br/><br/>
+	admitCard		  <input type="radio" name="section" id="txtSection1" value="admitCard"><br/><br/>
+	latestJobs     	  <input type="radio" name="txtSection" id="txtSection2" value="latestJobs"><br/><br/>
+	latestResult      <input type="radio" name="txtSection" id="txtSection3" value="latestResult"><br/><br/>
+	otherImpLinks	  <input type="radio" name="txtSection" id="txtSection4" value="otherImpLinks"><br/><br/>
+	txtContent:<input type="text" name="txtContent" id="txtContent"><br/><br/><br/>
+	  <input type="checkbox" id="txtVehicle1" name="txtVehicle1" value="Bike">
+	  <label for="vehicle1"> I have a bike</label><br>
+	  <input type="checkbox" id="txtVehicle2" name="txtVehicle2" value="Car">
+	  <label for="vehicle2"> I have a car</label><br>
+	  <input type="checkbox" id="txtVehicle3" name="txtVehicle3" value="Boat">
+	  <label for="vehicle3"> I have a boat</label><br><br>
 	</div>
 	<div class="row"></div>
-<button type="button" class="btn btn-primary" onclick="callToServer();startLoader();">Submit</button>
+	    
+	<button type="button" class="txtContentbtn btn-primary" onclick="callToServer();startLoader();">Submit</button>
 </form>
 <div id="loader" class="loaderDivClass" style="display: none;">
 	<img class="loaderImgClass" src="images/flame.svg">

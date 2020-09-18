@@ -20,19 +20,18 @@ public class fetchDataFromTable {
 		MultiMap multiMap = new MultiValueMap();
 
 		try {
-			String query="select * from details order by section";
+			String query="select * from details order by created_at desc";
 			ps=conn.prepareStatement(query);
 			//ps.setInt(parameterIndex, x);
 			rs=ps.executeQuery();
 			while(rs.next()) {
 				userTabObj=new UserTableDetailsModel();
 				
-				userTabObj.setSno(rs.getInt("SNo"));
-				userTabObj.setName(rs.getString("Name"));
-				userTabObj.setKeyword(rs.getString("Keyword"));
-				userTabObj.setURL(rs.getString("URL"));
-				userTabObj.setSection(rs.getString("section"));
-				userTabObj.setContent(rs.getString("content"));
+				userTabObj.setTxtName(rs.getString("Name"));
+				userTabObj.setTxtKeyword(rs.getString("Keyword"));
+				userTabObj.setTxtUrl(rs.getString("URL"));
+				userTabObj.setTxtSection(rs.getString("section"));
+				userTabObj.setTxtContent(rs.getString("content"));
 				
 				multiMap.put(rs.getString("section"),userTabObj);
 			}

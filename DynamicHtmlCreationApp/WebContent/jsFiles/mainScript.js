@@ -1,6 +1,5 @@
 function onloadOfApplication(){
-	startLoader();
-	setTimeout(function(){ stopLoader(); }, 1000);
+	
 }
 
 function callToServer(){
@@ -23,6 +22,7 @@ function callToServer(){
 				error : function(result)
 				{
 					alert("ERROR");
+					stopLoader();
 				}
 			});
 }

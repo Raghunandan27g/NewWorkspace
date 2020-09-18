@@ -6,7 +6,7 @@ public class SimpleGenerationUtilities {
 	
 	public static String ulBasicDesign(UserTableDetailsModel userTabObj) {
 		return "" + 
-				"			<li><a href=\""+userTabObj.getSection()+"/"+userTabObj.getURL()+"\" target=\"_blank\">"+ userTabObj.getName()+" </a></li>\r\n" + 
+				"			<li><a href=\""+userTabObj.getTxtSection()+"/"+userTabObj.getTxtUrl()+"\" target=\"_blank\">"+ userTabObj.getTxtName()+" </a></li>\r\n" + 
 				"";
 	}
 	public static String oneFileliDesign() {
