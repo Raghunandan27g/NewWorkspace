@@ -1,3 +1,5 @@
+var JSON_VALUE_POPULATE=[];
+
 function onloadOfApplication(){
 	
 }
@@ -11,6 +13,8 @@ function callToServer(){
 				data:  $("form").serialize(),
 				success: function(result)
 				{
+					JSON_VALUE_POPULATE=JSON.parse(result);
+					populate("form", JSON_VALUE_POPULATE);
 					if(result=="true"){
 						console.log(result);
 						stopLoader();
@@ -38,8 +42,18 @@ function startLoader()
 	$("#loader").css('opacity', '1');
 	$("#loader").show(100);
 }
-$(window).load(function(){
-	   // PAGE IS FULLY LOADED  
-	   // FADE OUT YOUR OVERLAYING DIV
-	   $('#overlay').fadeOut();
-	});
+function populate(frm, data) {   
+    $.each(data, function(key, value) {  
+        var ctrl = $('[name='+key+']', frm);  
+        switch(ctrl.prop("type")) {
+            case "radio": case "checkbox":   
+                ctrl.each(function() {
+                    //if($(this).attr('value') == value) $(this).attr("checked",value);
+                	$("input[name="+key+"][value=" + value + "]").prop('checked', true);
+                });   
+                break;  
+            default:
+                ctrl.val(value); 
+        }  
+    });  
+}

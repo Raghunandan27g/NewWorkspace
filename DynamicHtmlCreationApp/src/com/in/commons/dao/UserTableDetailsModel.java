@@ -5,20 +5,12 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class UserTableDetailsModel {
 	
-	private String txtGenerationType;
 	private String txtName;
-	private String txtKeyword; 
+	private String txtKeyword;
 	private String txtUrl;
-	private String txtSection; 
+	private String txtSection;
 	private String txtContent;
 	
-	
-	public String getTxtGenerationType() {
-		return txtGenerationType;
-	}
-	public void setTxtGenerationType(String txtGenerationType) {
-		this.txtGenerationType = txtGenerationType;
-	}
 	public String getTxtName() {
 		return txtName;
 	}
@@ -49,6 +41,5 @@ public class UserTableDetailsModel {
 	public void setTxtContent(String txtContent) {
 		this.txtContent = txtContent;
 	} 
-
 	
 }

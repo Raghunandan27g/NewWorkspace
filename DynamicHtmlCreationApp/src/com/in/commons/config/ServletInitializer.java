@@ -12,6 +12,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.json.JSONObject;
+
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.in.commons.controller.UserController;
@@ -25,15 +27,19 @@ import com.in.commons.util.fileGeneration;
 public class ServletInitializer extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
+	@SuppressWarnings("rawtypes")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.setContentType("text/html");
-        response.setCharacterEncoding("UTF-8");
-        UserTableDetailsModel obj=DAOConfig.getValueFromRequestConvertToPOJO(request);
-		System.out.println(obj.getTxtUrl());
-		//boolean status=UserController.stepwiseGenerationController(request);
-		response.setContentType("text/plain");  
-	    response.setCharacterEncoding("UTF-8"); 
-	    response.getWriter().write("true");
+        ObjectMapper objMap=new ObjectMapper();
+		try {
+			Map mapAsJSON=UserController.stepwiseGenerationController(request);
+			String jsonResponse = objMap.writeValueAsString(mapAsJSON);
+			response.setContentType("text/html");
+			response.setCharacterEncoding("UTF-8");
+			response.getWriter().write(jsonResponse);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 }

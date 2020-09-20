@@ -27,24 +27,19 @@ public class fileGeneration {
 	            System.out.println("Key = " + key);
 	            ArrayList<UserTableDetailsModel> arrListUserTabModel=(ArrayList<UserTableDetailsModel>)userTableModelMap.get(key);
 	            for(UserTableDetailsModel userTabObj : arrListUserTabModel){
-	            	if(key.equals("admitCard")) {
-	            		//AdmitCard related codes
+	            	if(key.equals(UserConstants.SECTION_ADMIT_CARD)) {
 	            		strAdmitCard.append(SimpleGenerationUtilities.ulBasicDesign(userTabObj));
 	            		multiPageTemplateFileManipulate(path,userTabObj);
-	            		//new file generate
 	            	}
-	            	else if(key.equals("latestJobs")) {
-	            		//LatestJobs related codes
+	            	else if(key.equals(UserConstants.SECTION_LATEST_JOBS)) {
 	            		strLatestJobs.append(SimpleGenerationUtilities.ulBasicDesign(userTabObj));
 	            		multiPageTemplateFileManipulate(path,userTabObj);
 	            	}
-	            	else if(key.equals("latestResult")) {
-	            		//LatestResults related codes
+	            	else if(key.equals(UserConstants.SECTION_LATEST_RESULTS)) {
 	            		strLatestResults.append(SimpleGenerationUtilities.ulBasicDesign(userTabObj));
 	            		multiPageTemplateFileManipulate(path,userTabObj);
 	            	}
-	            	else if(key.equals("otherImpLinks")) {
-	            		//otherImpLinks related codes
+	            	else if(key.equals(UserConstants.SECTION_IMP_LINKS)) {
 	            		strOtherImpLinks.append(SimpleGenerationUtilities.ulBasicDesign(userTabObj));
 	            		multiPageTemplateFileManipulate(path,userTabObj);
 	            	}
