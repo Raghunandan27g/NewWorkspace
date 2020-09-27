@@ -22,11 +22,10 @@ public class DAOConfig {
 			    mapString=new StringBuilder();
 			    for( int i = 0; i < strArr.length; i++)
 			    {
-			    	if(i!=0) {
+			    	if(i!=0) 
 			    		mapString.append(",");
-			    	}
 			        String element = strArr[i].replace("<", "").replace(">", "");
-			        System.out.println(key+":"+mapString.append(element));
+			        System.out.println("Test::"+key+":"+mapString.append(element));
 			    }
 			    mapToConvert.put(key,mapString);
 			}
@@ -50,23 +49,34 @@ public class DAOConfig {
 		StringBuilder insertStringColumns=new StringBuilder();
 		StringBuilder insertStringValues=new StringBuilder();
 		StringBuilder selectString=new StringBuilder();
+		StringBuilder viewSelectString=new StringBuilder();
 		ObjectMapper objMap=new ObjectMapper();
 			try {
 				String jsonStr = objMap.writeValueAsString(pojo);
+				System.out.println("createQueries ::"+jsonStr);
 				crudMap=objMap.readValue(jsonStr, Map.class);
 				insertStringColumns.append("(");
 				insertStringValues.append("(");
 				for (Object key : crudMap.keySet()) {
+					if(key=="txtSno") {
+						selectString.append(key+",");
+						viewSelectString.append(key+",");
+						continue;
+					}
 					if(count!=0) {
 						updateString.append(",");
 						insertStringColumns.append(",");
 						insertStringValues.append(",");
 						selectString.append(",");
+						if(count<UserConstants.NOS_VIEW_COLUMNS)
+							viewSelectString.append(",");
 			    	}
 					updateString.append(key+"='"+crudMap.get(key)+"'");
 					insertStringColumns.append(key);
 					insertStringValues.append("'"+crudMap.get(key)+"'");
 					selectString.append(key);
+					if(count<UserConstants.NOS_VIEW_COLUMNS)
+						viewSelectString.append(key);
 					count++;
 				}
 				insertStringColumns.append(")");
@@ -75,6 +85,11 @@ public class DAOConfig {
 				crudMap.put(UserConstants.UPDATE_QUERY, updateString);
 				crudMap.put(UserConstants.INSERT_QUERY, insertString);
 				crudMap.put(UserConstants.SELECT_QUERY, selectString);
+				crudMap.put(UserConstants.VIEW_SELECT_QUERY, viewSelectString);
+//				System.out.println(updateString);
+//				System.out.println(selectString);
+//				System.out.println("viewSelectString::"+viewSelectString);
+				
 			} catch (Exception e) {
 				// TODO: handle exception
 			}

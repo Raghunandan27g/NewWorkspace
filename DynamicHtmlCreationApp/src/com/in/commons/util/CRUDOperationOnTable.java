@@ -12,7 +12,7 @@ import org.json.JSONObject;
 
 import com.in.commons.dao.UserTableDetailsModel;
 
-public class CRUDOperationOnTable {
+public class CRUDOperationOnTable	{
 	
 	@SuppressWarnings({ "unchecked", "deprecation", "rawtypes" })
 	public static Map DetailsTableFetch(Connection conn,HttpServletRequest request,Map mapOfQueries) {
@@ -23,7 +23,7 @@ public class CRUDOperationOnTable {
 		MultiMap multiMap = new MultiValueMap();
 
 		try {
-			String query="select "+mapOfQueries.get(UserConstants.SELECT_QUERY)+" from details order by created_at desc";
+			String query="select "+mapOfQueries.get(UserConstants.SELECT_QUERY)+" from "+UserConstants.TABLE_NAME+" order by created_at desc";
 			ps=conn.prepareStatement(query);
 			System.out.println(ps);
 			rs=ps.executeQuery();
@@ -36,7 +36,7 @@ public class CRUDOperationOnTable {
 //					field.setAccessible(true); 
 //			        field.set(userTabObj, rs.getString(column)); 
 				}
-				multiMap.put(rs.getString("txtSection"),userTabObj);
+				multiMap.put(rs.getString(UserConstants.MAP_COLUMN_KEY),userTabObj);
 			}
 			
 		} catch (Exception e) {
@@ -57,7 +57,7 @@ public class CRUDOperationOnTable {
 		PreparedStatement ps=null;
 		int rowsEffected=0;
 		try {
-			String query="update details set "+mapOfQueries.get(UserConstants.UPDATE_QUERY)+" "+whereCond;
+			String query="update "+UserConstants.TABLE_NAME+" set "+mapOfQueries.get(UserConstants.UPDATE_QUERY)+" "+whereCond;
 			ps=conn.prepareStatement(query);
 			System.out.println(ps);
 			rowsEffected=ps.executeUpdate();
@@ -80,7 +80,7 @@ public class CRUDOperationOnTable {
 		PreparedStatement ps=null;
 		int rowsEffected=0;
 		try {
-			String query="insert into details "+mapOfQueries.get(UserConstants.INSERT_QUERY);
+			String query="insert into "+UserConstants.TABLE_NAME+" "+mapOfQueries.get(UserConstants.INSERT_QUERY);
 			ps=conn.prepareStatement(query);
 			System.out.println(ps);
 			rowsEffected=ps.executeUpdate();

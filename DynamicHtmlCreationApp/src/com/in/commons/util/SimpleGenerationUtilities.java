@@ -9,8 +9,8 @@ public class SimpleGenerationUtilities {
 				"			<li><a href=\""+userTabObj.getTxtSection()+"/"+userTabObj.getTxtUrl()+"\" target=\"_blank\">"+ userTabObj.getTxtName()+" </a></li>\r\n" + 
 				"";
 	}
-	public static String oneFileliDesign() {
-		return "<li style=\"display: none;\">$admitCard_One$</li>"
-				+ "<li>New Row</li>";
+	public static String oneFileliDesign(UserTableDetailsModel userTabObj) {
+		return "<li style=\"display: none;\">$"+userTabObj.getTxtSection()+"_One$</li>"
+				+ ulBasicDesign(userTabObj);
 	}
 }

@@ -9,52 +9,94 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   		<script src="jsFiles/mainScript.js"></script>
+  		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  		<link href="https://fonts.googleapis.com/css?family=Teko:400,700" rel="stylesheet">
+  		<link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700" rel="stylesheet">
 </head>
 <body onload="onloadOfApplication();">
-<div id="outerDiv">
+<div id="outer_Div">
 <form method="post" action="ServletInitializer">
-
-<div class="btn-group btn-group-toggle" data-toggle="buttons">
-	  <label class="btn btn-secondary active">
-	    <input type="radio" name="txtGenerationType" id="option1" autocomplete="off" value="HOMEPAGE_GENERATION" > HOMEPAGE_GENERATION
-	  </label>
-	  <label class="btn btn-secondary">
-	    <input type="radio" name="txtGenerationType" id="option2" autocomplete="off" value="COMPLETE_GENERATION"> COMPLETE_GENERATION
-	  </label>
-	  <label class="btn btn-secondary">
-	    <input type="radio" name="txtGenerationType" id="option3" autocomplete="off" value="FLAG_FILES_GENERATION"> FLAG_FILES_GENERATION
-	  </label>
-	  <label class="btn btn-secondary">
-	    <input type="radio" name="txtGenerationType" id="option4" autocomplete="off" value="NEW_FILE_GENERATION" checked> NEW_FILE_GENERATION
-	  </label>
-	  <label class="btn btn-secondary">
-	    <input type="radio" name="txtGenerationType" id="option5" autocomplete="off" value="EDIT_FILE"> EDIT_FILE
-	  </label>
-	</div> 
-	<div>
-	txtName:<input type="text" name="txtName" id="txtName"><br/><br/>
-	txtKeyword:<input type="text" name="txtKeyword" id="txtKeyword"><br/><br/>
-	txtUrl:<input type="text" name="txtUrl" id="txtUrl"><br/><br/>
-	txtSection:<br/><br/>
-	admitCard		  <input type="radio" name="txtSection" id="txtSection1" value="admitCard"><br/><br/>
-	latestJobs     	  <input type="radio" name="txtSection" id="txtSection2" value="latestJobs"><br/><br/>
-	latestResult      <input type="radio" name="txtSection" id="txtSection3" value="latestResult"><br/><br/>
-	otherImpLinks	  <input type="radio" name="txtSection" id="txtSection4" value="otherImpLinks"><br/><br/>
-	txtContent:<input type="text" name="txtContent" id="txtContent"><br/><br/><br/>
-	  <input type="checkbox" id="txtVehicle1" name="txtVehicle1" value="Bike">
-	  <label for="vehicle1"> I have a bike</label><br>
-	  <input type="checkbox" id="txtVehicle2" name="txtVehicle2" value="Car">
-	  <label for="vehicle2"> I have a car</label><br>
-	  <input type="checkbox" id="txtSno" name="txtSno" value="8">
-	  <label for="txtSno"> txtSno</label><br><br>
-	</div>
-	<div class="row"></div>
-	    
-	<button type="button" class="txtContentbtn btn-primary" onclick="callToServer();startLoader();">Submit</button>
+<section id="contact">
+			<div class="section-content">
+				<h1 class="section-header">Let's  <span class="content-header wow fadeIn " data-wow-delay="0.2s" data-wow-duration="2s">JustDoIt</span></h1>
+				<h3>Fill the Form.</h3>
+				<div>
+					<div class="btn-group btn-group-toggle" data-toggle="buttons">
+							  <label class="btn btn-secondary active">
+							    <input type="radio" name="txtGenerationType" id="option1" autocomplete="off" value="HOMEPAGE_GENERATION" onclick="checkRadioBtnInp();" checked> HOMEPAGE_GENERATION
+							  </label>
+							  <label class="btn btn-secondary">
+							    <input type="radio" name="txtGenerationType" id="option2" autocomplete="off" value="COMPLETE_GENERATION" onclick="checkRadioBtnInp();"> COMPLETE_GENERATION
+							  </label>
+							  <label class="btn btn-secondary">
+							    <input type="radio" name="txtGenerationType" id="option3" autocomplete="off" value="FLAG_FILES_GENERATION" onclick="checkRadioBtnInp();"> FLAG_FILES_GENERATION
+							  </label>
+							  <label class="btn btn-secondary">
+							    <input type="radio" name="txtGenerationType" id="option4" autocomplete="off" value="NEW_FILE_GENERATION"  onclick="checkRadioBtnInp();"> NEW_FILE_GENERATION
+							  </label>
+							  <label class="btn btn-secondary" style="pointer-events:none">
+							    <input type="radio" name="txtGenerationType" id="option5" autocomplete="off" value="EDIT_FILE" onclick="checkRadioBtnInp();"> EDIT_FILE
+							  </label>
+							  <label class="btn btn-secondary" >
+							    <input type="radio" name="txtGenerationType" id="option6" autocomplete="off" value="FETCH_COMPLETE_DATA" onclick="checkRadioBtnInp();" > FETCH_COMPLETE_DATA
+							  </label>
+					</div> 
+				</div>
+			</div>
+			<div class="contact-section">
+			<div class="container">
+					<div class="" id="allInputFields" style="display:none">
+						<div class="form-group">
+					    	<label for="Sno" id="SnoLabel">Sno</label>
+					    	<input type="text" class="form-control" placeholder="Sno" id="txtSno" name="txtSno" required autocomplete="on" readonly>
+					  	</div>
+				  		<div class="form-group">
+					    	<label for="exampleInputEmail">Name</label>
+					    	<input type="text" class="form-control" placeholder="Name" id="txtName" name="txtName" required autocomplete="on">
+					  	</div>
+					  	<div class="form-group">
+					    	<label for="Keyword">Keyword</label>
+					    	<input type="text" class="form-control" placeholder="Keyword" id="URL" name="txtKeyword" required autocomplete="on">
+					  	</div>
+					  	<div class="form-group">
+					    	<label for="URL">URL</label>
+					    	<input type="text" class="form-control" placeholder="URL" id="txtUrl" name="txtUrl">
+			  			</div>
+			  			<div class="form-group">
+			  				<label for="Section">Section</label>
+					    	<select class="form-control" id="txtSection" name="txtSection" required> 
+								<option title="ADMIT CARD" value="admit-card">ADMIT CARD</option>
+								<option title="LATEST JOBS" value="latest-jobs">LATEST JOBS</option>
+								<option title="LATEST RESULTS" value="latest-results">LATEST RESULTS</option>
+								<option title="OTHER LINKS" value="other-links">OTHER LINKS</option>
+							</select>
+						</div>
+						<div class="form-group">
+					    	<label for="Content">Content</label>
+					  		<textarea class="form-control" aria-label="With textarea" rows="5" cols="50" placeholder="Content" id="txtContent" name="txtContent" required autocomplete="on"></textarea>
+					  	</div>
+					</div>
+					<table class="table table-hover" id="myTable">
+					    <thead id="headerId">
+					    </thead>
+					    <tbody id="bodyId">
+					    </tbody>
+					  </table>
+					<div class="text-center">
+						<button type="button" id="btnSubmit1" class="submit1" onclick="callToServerCheck();startLoader();"><i class="fa fa-paper-plane" aria-hidden="true"></i>Here we Go!!</button>
+			 		</div>
+			</div>
+			</div>
+	<footer class="page-footer font-small teal pt-4">
+	  <div class="footer-copyright text-center py-3"> 2020 Copyright: RY Corp.
+  	  </div>
+	</footer>
+	</section>
 </form>
 <div id="loader" class="loaderDivClass" style="display: none;">
 	<img class="loaderImgClass" src="images/flame.svg">
 </div>
 </div>
+<input type="hidden" name="" id="" value=""/>
 </body>
 </html>
