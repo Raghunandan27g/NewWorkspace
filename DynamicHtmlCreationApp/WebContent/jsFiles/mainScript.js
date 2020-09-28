@@ -21,24 +21,27 @@ function callToServer(){
 						sortTable();
 						stopLoader();
 					}
-					if(JSON_VALUE_POPULATE.UPDATE_STATUS_KEY==true){
+					else if(JSON_VALUE_POPULATE.UPDATE_STATUS_KEY==true){
 						alertMsg("UPDATE WAS SUCCESSFULL");
 						$("#myTable").hide();
 						stopLoader();
 					}
-					if(JSON_VALUE_POPULATE.INSERT_STATUS_KEY==true){
+					else if(JSON_VALUE_POPULATE.INSERT_STATUS_KEY==true){
 						alertMsg("INSERT WAS SUCCESSFULL");
 						$("#myTable").hide();
 						stopLoader();
 					}
-					if(JSON_VALUE_POPULATE.COMPLETE_STATUS_KEY==true){
+					else if(JSON_VALUE_POPULATE.COMPLETE_STATUS_KEY==true){
 						alertMsg("COMPLETE GENERATION WAS SUCCESSFULL");
 						$("#myTable").hide();
 						stopLoader();
 					}
-					if(JSON_VALUE_POPULATE.HOMEPAGE_STATUS_KEY==true){
+					else if(JSON_VALUE_POPULATE.HOMEPAGE_STATUS_KEY==true){
 						alertMsg("HOMEPAGE GENERATION WAS SUCCESSFULL");
 						$("#myTable").hide();
+						stopLoader();
+					}
+					else{
 						stopLoader();
 					}
 				},
