@@ -99,3 +99,14 @@ label{
   background-color: #3a6186;
   color: white;
 }
+.alert
+{
+    font-size: 1.3em;
+    padding: 1em;
+    text-align: center;
+    white-space: nowrap;
+    width: auto;
+    word-wrap: normal;
+}
+  .showcss{ display:block;}
+  .hidecss{ display:none;}

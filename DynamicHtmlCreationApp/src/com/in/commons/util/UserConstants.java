@@ -20,6 +20,7 @@ public interface UserConstants {
 	static final String UPDATE_STATUS_KEY="UPDATE_STATUS_KEY";
 	static final String INSERT_STATUS_KEY="INSERT_STATUS_KEY";
 	static final String COMPLETE_STATUS_KEY="COMPLETE_STATUS_KEY";
+	static final String HOMEPAGE_STATUS_KEY="HOMEPAGE_STATUS_KEY";
 //	Section Names
 	static final String SECTION_ADMIT_CARD="admit-card";
 	static final String SECTION_LATEST_JOBS="latest-jobs";

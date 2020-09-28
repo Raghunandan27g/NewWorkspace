@@ -34,7 +34,7 @@ public class UserController {
 				if(generationType.equals(UserConstants.HOMEPAGE_GENERATION)) {
 					boolean completeGenFlag=false;
 					Map userTabMap=CRUDOperationOnTable.DetailsTableFetch(conn,request,mapOfQueries);
-					returningMap.put(UserConstants.COMPLETE_STATUS_KEY,fileGeneration.homePageFileManipulate(UserConstants.FILE_PATH,userTabMap,completeGenFlag));
+					returningMap.put(UserConstants.HOMEPAGE_STATUS_KEY,fileGeneration.homePageFileManipulate(UserConstants.FILE_PATH,userTabMap,completeGenFlag));
 				}
 				else if(generationType.equals(UserConstants.FLAG_FILES_GENERATION )) {
 					
