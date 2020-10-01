@@ -1,20 +1,72 @@
 body {
-  background: #4CA1AF;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #C4E0E5, #4CA1AF);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #C4E0E5, #4CA1AF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	font-family: proxima-nova,"Helvetica Neue",Helvetica,Arial,sans-serif;
 
+	/*
+  background: #4CA1AF;   //fallback for old browsers 
+background: -webkit-linear-gradient(to right, #C4E0E5, #4CA1AF);  // Chrome 10-25, Safari 5.1-6 
+background: linear-gradient(to right, #C4E0E5, #4CA1AF); // W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ 
+*/
 }
-.headingDiv{
-	text-align: center;
-	background: #4CA1AF;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #C4E0E5, #4CA1AF);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #C4E0E5, #4CA1AF); 
+.box2 {
+	top:-8px;
+	border-radius:7px;
+  z-index: 1;
+  border: 1px solid #00bfb6;
+  padding: 1px;
+  text-align: center;
+  font-weight: 900;
+  color: #00bfb6;
+  position: absolute;
+  background:white;
 }
-.contentDiv{
-  min-height: 100px;
-  height:200px;
-  overflow-y: scroll;
+
+.sb10:before {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid #00bfb6;
+  right: 25%;
+  top: -20px;
 }
-.footerTag{
-	background: #c0c0c0;
+
+.sb10:after {
+  content: "";
+  width: 0px;
+  height: 0px;
+  position: absolute;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid #fff;
+  right: 25%;
+  top: -18px;
+}
+.NoDesign {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow-x:hidden;
+  white-space:nowrap; 
+}
+.search-container button {
+  float: right;
+  padding: 6px 10px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background: #ccc;
+}
+.col-xs-12 .box2 {
+	width: 60%;
+	left: 30%;
 }
