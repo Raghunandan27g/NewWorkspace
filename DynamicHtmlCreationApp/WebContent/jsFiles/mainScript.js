@@ -125,15 +125,18 @@ function sortTable() {
 	$('#myTable').show();
 	JSON_VALUE_POPULATE_OBJ=[];
 
-	var arrOfSec=["admit-card","other-links","latest-results","latest-jobs"];
+	//var arrOfSec=["admit-card","other-links","latest-results","latest-jobs"];
 	$thead = $('#myTable').find('thead');
 	$tbody = $('#myTable').find('tbody');
-	for (var i = 0; i < arrOfSec.length; i++) {
-		var lenOfinnerArr=JSON_VALUE_POPULATE.FETCH_COMPLETE_DATA[arrOfSec[i]];
+	Object.keys(JSON_VALUE_POPULATE.FETCH_COMPLETE_DATA).forEach(function(key) {
+		//console.log(key);
+		var lenOfinnerArr=JSON_VALUE_POPULATE.FETCH_COMPLETE_DATA[key];
 		for (var j = 0; j < lenOfinnerArr.length; j++) {
-			JSON_VALUE_POPULATE_OBJ.push(JSON_VALUE_POPULATE.FETCH_COMPLETE_DATA[arrOfSec[i]][j]);
+			JSON_VALUE_POPULATE_OBJ.push(JSON_VALUE_POPULATE.FETCH_COMPLETE_DATA[key][j]);
 		}
-	}
+	});
+
+	
 	JSON_VALUE_POPULATE_OBJ.sort(function(a, b){
 	    return a.txtSno - b.txtSno;
 	});
