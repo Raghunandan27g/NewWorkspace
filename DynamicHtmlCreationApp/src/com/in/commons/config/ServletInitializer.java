@@ -1,8 +1,6 @@
 package com.in.commons.config;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,11 +12,9 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONObject;
 
-import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.in.commons.controller.UserController;
-import com.in.commons.dao.UserTableDetailsModel;
-import com.in.commons.util.fileGeneration;
+import com.in.commons.util.ImageFileCustom;
 
 /**
  * Servlet implementation class ServletInitializer

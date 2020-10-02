@@ -10,6 +10,7 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
   		<script src="jsFiles/mainScript.js"></script>
+  		<script src="jsFiles/paste.js"></script>
   		<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   		<link href="https://fonts.googleapis.com/css?family=Teko:400,700" rel="stylesheet">
   		<link href="https://fonts.googleapis.com/css?family=Oleo+Script:400,700" rel="stylesheet">
@@ -89,6 +90,10 @@
 					    	<label for="Content">Content</label>
 					  		<textarea class="form-control" aria-label="With textarea" rows="5" cols="50" placeholder="Content" id="txtContent" name="txtContent" required autocomplete="on"></textarea>
 					  	</div>
+					  	<div class="form-group">
+					    	<label for="txtImage">Image Upload</label>
+					  		<textarea class="demo demo-textarea pastable" name="txtImage" id="txtImage" >I'm a textarea, using `$('.demo-textarea').pastableTextarea()`.</textarea>
+					  	</div>
 					</div>
 					<table class="table table-hover" id="myTable">
 					    <thead id="headerId">
@@ -101,16 +106,17 @@
 			 		</div>
 			</div>
 			</div>
+	</section>
+<input type="hidden" name="imgBlobData" id="imgBlobData" value=""/>
+</form>
 	<footer class="page-footer font-small teal pt-4">
 	  <div class="footer-copyright text-center py-3"> 2020 Copyright: RY Corp.
   	  </div>
 	</footer>
-	</section>
-</form>
+
 <div id="loader" class="loaderDivClass" style="display: none;">
 	<img class="loaderImgClass" src="images/flame.svg">
 </div>
 </div>
-<input type="hidden" name="" id="" value=""/>
 </body>
 </html>

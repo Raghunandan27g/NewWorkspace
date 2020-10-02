@@ -14,6 +14,7 @@ import com.in.commons.config.DAOConfig;
 import com.in.commons.dao.UserTableDetailsModel;
 import com.in.commons.util.UserConstants;
 import com.in.commons.util.CRUDOperationOnTable;
+import com.in.commons.util.ImageFileCustom;
 import com.in.commons.util.fileGeneration;
 
 
@@ -25,9 +26,19 @@ public class UserController {
 		try {
 			
 			conn=DbResource.getConnection();
+			
 			ObjectMapper objMap=new ObjectMapper();
 	        UserTableDetailsModel objUserTab=DAOConfig.getValueFromRequestConvertToPOJO(request);
+	        //Image Upload Code here.
+	        String objImageString = request.getParameter("imgBlobData");
+	        if(objImageString!=null && !objImageString.isEmpty()){
+	        	System.out.println("inside image");
+				Map map = objMap.readValue(objImageString, Map.class);
+				ImageFileCustom.storeImageOnServerMap(map,objUserTab);
+	        }
+			
 	        Map mapOfQueries=DAOConfig.createQueries(objUserTab);
+	        
 			String generationType=request.getParameter(UserConstants.GENERATION_TYPE);
 			System.out.println(generationType);
 			if(!(generationType.equals(null) || generationType.equals(""))){

@@ -25,7 +25,8 @@ public class DAOConfig {
 			    	if(i!=0) 
 			    		mapString.append(",");
 			        String element = strArr[i].replace("<", "").replace(">", "");
-			        System.out.println("Test::"+key+":"+mapString.append(element));
+			        mapString.append(element);
+			        //System.out.println(key+":"+mapString.append(element));
 			    }
 			    mapToConvert.put(key,mapString);
 			}

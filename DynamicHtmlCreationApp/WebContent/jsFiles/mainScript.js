@@ -191,7 +191,7 @@ function callToServerCheck(){
 	}
 }
 function alertMsg(msg){
-	createModal("Alert",msg,"alert");
+	createModal("ALERT",msg,"alert");
 }
 
 function createModal(title, message, type) {  
@@ -211,10 +211,10 @@ function customModal(head, body, type) {
        $('#done-btn').on('click', function() {  
              return response('done');  
        });  
-    } else if( type == 'alert') {  
+    } else if( type == 'alert') {
           $('#modal-head').html('   <h4 class="modal-title">'+head+'</h4>');  
        $('#modal-body').html('             <p>' + body + '</p>');  
-       $('#modal-footer').html('       <button type="button" class="btn btn-primary" data-dismiss="modal">Ok</button>');  
+       $('#modal-footer').html('       <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>');  
        $('#custom-modal').modal('show');  
        } else if( type == 'confirm') {  
            $('#modal-head').html('       <h4 class="modal-title">'+ head +'</h4>');  
@@ -247,3 +247,28 @@ $('#custom-modal').modal('hide');
        return true;  
        }  
     } 
+    
+$(function(){
+	$('.demo-noninputable').pastableNonInputable();
+	$('.demo-textarea').on('focus', function(){
+	  var isFocused = $(this).hasClass('pastable-focus');
+	  console && console.log('[textarea] focus event fired! ' + (isFocused ? 'fake onfocus' : 'real onfocus'));
+	}).pastableTextarea().on('blur', function(){
+	  var isFocused = $(this).hasClass('pastable-focus');
+	  console && console.log('[textarea] blur event fired! ' + (isFocused ? 'fake onblur' : 'real onblur'));
+	});
+	$('.demo-contenteditable').pastableContenteditable();
+	$('.demo').on('pasteImage', function(ev, data){
+	  var blobUrl = URL.createObjectURL(data.blob);
+	  $("#imgBlobData").val(JSON.stringify(data));
+	  $(".result").remove();
+	  $('<div class="result"><input type="file" id="imgInp" />image: ' + data.width + ' x ' + data.height + '<img src="' + data.dataURL +'" ><a href="' + blobUrl + '">' + blobUrl + '</div>').insertAfter(this);
+	}).on('pasteImageError', function(ev, data){
+	  alert('Oops: ' + data.message);
+	  if(data.url){
+	    alert('But we got its url anyway:' + data.url)
+	  }
+	}).on('pasteText', function(ev, data){
+	  $('<div class="result"></div>').text('text: "' + data.text + '"').insertAfter(this);
+	});
+});
